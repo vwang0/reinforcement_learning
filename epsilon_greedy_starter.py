@@ -16,14 +16,14 @@ class Bandit:
     # p: the win rate
     self.p = p
     self.p_estimate = 0.25
-    self.N = 10000
+    self.N = 100
 
   def pull(self):
     # draw a 1 with probability p
     return np.random.random() < self.p
 
   def update(self, x):
-    self.N = 10000
+    self.N = 100
     self.p_estimate = 0.25
 
 
@@ -58,8 +58,6 @@ def experiment():
 
     # update the distribution for the bandit whose arm we just pulled
     bandits[j].update(x)
-
-    
 
   # print mean estimates for each bandit
   for b in bandits:
